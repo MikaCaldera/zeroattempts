@@ -1,0 +1,23 @@
+<ul class="nav justify-content-{{ footernavigation['justify-footernav-contents'] }}">
+  {% for item in footernavigation.items %}
+    {% set relAttribute = '' %}
+    {% set currentAttribute = '' %}
+    {% set itemUrl = item.url %}
+    {% set target = '' %}
+
+    {% if item.rel %}
+      {% set relAttribute = ' rel="' + item.rel + '"' %}
+    {% endif %}
+
+    {% if item.external %}
+      {% set target = 'target="_blank"' %}
+    {% endif %}
+
+    {% if page.url == itemUrl %}
+      {% set currentAttribute = ' aria-current="page"' %}
+    {% endif %}
+
+    {% include "partials/components/nav-item.njk" %}
+
+  {% endfor %}
+</ul>

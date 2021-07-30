@@ -1,0 +1,24 @@
+<ul class="nav nav-socialmedia justify-content-{{ footernavigation['justify-footernav-contents'] }}">
+  {% for item in socialmedia.items %}
+    {% set relAttribute = '' %}
+    {% set currentAttribute = '' %}
+    {% set target = '' %}
+
+    {% if item.rel %}
+      {% set relAttribute = ' rel="' + item.rel + '"' %}
+    {% endif %}
+
+    {% if item.external %}
+      {% set target = 'target="_blank"' %}
+    {% endif %}
+
+    {% if page.url == item.url %}
+      {% set currentAttribute = ' aria-current="page"' %}
+    {% endif %}
+
+    {% set itemUrl = item.url %}
+
+    {% include "partials/components/nav-item.njk" %}
+
+  {% endfor %}
+</ul>

@@ -1,0 +1,12 @@
+{
+  "name": "Zero Point",
+  "shortName": "getzeropoint.com",
+  "icon": "src/images/favicon.svg",
+  "showThemeCredit": true,
+  "logo": "/assets/images/logo.svg",
+  "shortDesc": "Zero Point is a lightweight Eleventy starter kit.",
+  "url": "",
+  "formHtml": "<form action=\"/thank-you/\" name=\"contact\" method=\"post\" data-netlify=\"true\">\n      <div class=\"form-group\">\n        <label for=\"inputName\">Name</label>\n        <input type=\"text\" name=\"Name\" class=\"form-control\" id=\"inputName\" placeholder=\"Jane Smith\" required=\"true\">\n      </div>\n      <div class=\"form-group\">\n        <label for=\"inputPhone\">Phone</label>\n        <input type=\"tel\" name=\"Phone\" class=\"form-control\" id=\"inputPhone\" placeholder=\"(860) 123-1234\" required=\"true\">\n      </div>\n        <div class=\"form-group\">\n        <label for=\"inputEmail\">Email</label>\n        <input type=\"email\" name=\"Email\" class=\"form-control\" id=\"inputEmail\" placeholder=\"jsmith@email.com\" required=\"true\">\n      </div>\n    <div class=\"form-group\">\n      <label for=\"inputMessage\">Message (optional)</label>\n      <textarea class=\"form-control\" name=\"Message\" id=\"inputMessage\" rows=\"1\"></textarea>\n    </div>\n    <div class=\"d-flex justify-content-center\" data-netlify-recaptcha=\"true\"></div>\n    <div class=\"text-center\">\n      <button type=\"submit\" class=\"btn btn-primary\">Get a Quote</button>\n    </div>\n  </form>",
+  "phoneNumber": "860-555-0055",
+  "maxPostsPerPage": 5
+}

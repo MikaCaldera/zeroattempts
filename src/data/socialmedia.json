@@ -1,0 +1,19 @@
+{
+  "items": [
+    {
+      "text": "Twitter",
+      "url": "https://twitter.com",
+      "icon": "/assets/images/twitter-brands.svg"
+    },
+    {
+      "text": "Facebook",
+      "url": "https//facebook.com",
+      "icon": "/assets/images/facebook-f-brands.svg"
+    },
+    {
+      "text": "LinkedIN",
+      "url": "https://linkedin.com",
+      "icon": "/assets/images/linkedin-in-brands.svg"
+    }
+  ]
+}

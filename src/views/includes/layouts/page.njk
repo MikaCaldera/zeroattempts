@@ -1,0 +1,19 @@
+{% extends 'layouts/base.njk' %}
+
+{% block content %}
+  <main class="content content-page" id="main-content" tabindex="-1">
+    <div class="row row-content">
+      <article class="col-content">
+        <header class="page-title">
+          <h1>{{ title | safe }}</h1>
+        </header>
+        {{ content | safe }}
+      </article>
+      <aside class="sidebar col-sidebar">
+        {{ site.formHtml | safe }}
+      </aside>
+    </div>
+  </main>
+{% endblock %}
+
+{{ content | safe }}

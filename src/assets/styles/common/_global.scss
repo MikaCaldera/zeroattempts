@@ -1,0 +1,75 @@
+html,
+body {
+  min-height: 100vh;
+}
+
+body {
+  @extend .d-flex, .flex-column;
+
+  overflow-x: hidden;
+}
+
+*:focus {
+  outline: none;
+}
+
+.content {
+  @extend .d-flex, .flex-column, .flex-grow-1, .container;
+}
+
+.row-content {
+  @extend .flex-grow-1, .justify-content-between;
+}
+
+.content-info {
+  @extend .mt-auto;
+}
+
+.logo {
+  height: $logo-height;
+}
+
+.heading-permalink {
+  @extend .visually-hidden;
+}
+
+.full-width {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+}
+
+.background-fixed {
+  background-attachment: fixed;
+}
+
+.background-scroll {
+  background-attachment: scroll;
+}
+
+.col-content {
+  @extend .my-5;
+
+  @include make-col-ready();
+
+  @include media-breakpoint-up(md) {
+    @include make-col($content-cols);
+  }
+}
+
+.col-sidebar {
+  background-color: $navbar-bg;
+
+  @include make-col-ready();
+
+  @include media-breakpoint-up(md) {
+    @include make-col($sidebar-cols);
+  }
+}
+
+.g-recaptcha {
+  @extend .mb-5;
+}

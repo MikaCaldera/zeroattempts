@@ -1,0 +1,17 @@
+{
+  "footerContent": "Lorem ipsum dolor sit.",
+  "justify-footernav-contents": "center",
+  "textAlign": "center",
+  "items": [
+    {
+      "text": "Home",
+      "url": "/",
+      "external": false
+    },
+    {
+      "text": "Contact",
+      "url": "/contact/",
+      "external": true
+    }
+  ]
+}

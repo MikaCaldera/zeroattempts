@@ -1,0 +1,23 @@
+{% extends 'layouts/base.njk' %}
+
+{% if postListHeading == null %}
+  {% set postListHeading = 'All posts' %}
+{% endif %}
+
+{% if collection == null %}
+  {% set postListItems = collections.posts %}
+{% else %}
+    {% if tag != null %}
+      {% set collection = tag | slug %}
+      {% set postListHeading = tag + " " + title %}
+    {% endif %}
+    {% set postListItems = collections[collection] %}
+{% endif %}
+
+{% block content %}
+  <main id="main-content" tabindex="-1">
+    <div class="container">
+      {% include "partials/components/post-list.njk" %}
+    </div>
+  </main>
+{% endblock %}

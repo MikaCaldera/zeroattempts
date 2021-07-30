@@ -1,0 +1,47 @@
+$tokens: (
+  colors: (
+    themeColors: (
+      primary: #007bff,
+      secondary: #6c757d,
+      success: #28a745,
+      info: #17a2b8,
+      warning: #ffc107,
+      danger: #dc3545,
+      light: #f8f9fa,
+      dark: #343a40
+    ),
+    bodyColors: (
+      bodyBg: #ffffff,
+      body-color: #404040,
+      headings-color: #404040,
+      footer-bg: #efefef,
+      footer-color: #404040
+    ),
+    headerColors: (
+      header-bg: #f8f9fa,
+      navbar-bg: #f8f9fa
+    )
+  ),
+  global-settings: (
+    enable-rounded: true,
+    enable-shadows: true,
+    enable-gradients: false,
+    enable-responsive-font-sizes: true
+  ),
+  fonts: (
+    googleFonts: ("Open+Sans:wght@400;600;700;800", "Recursive:wght@400;700"),
+    baseFontName: Open Sans,
+    headingsFontName: Recursive,
+    h6-font-size: 1,
+    h1-font-size: 3,
+    h2-font-size: 2,
+    h3-font-size: 1.75,
+    h4-font-size: 1.5,
+    h5-font-size: 1.25
+  ),
+  spacing: (
+    logo-height: 3,
+    content-cols: 6,
+    sidebar-cols: 4
+  )
+);

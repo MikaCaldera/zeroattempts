@@ -1,0 +1,9 @@
+---
+permalink: '/_redirects'
+eleventyExcludeFromCollections: true
+---
+// Admin
+/admin/*	200!	Role=admin
+
+// Role required
+{% for item in collections.all %}{% if item.data.roleRequired %}{{ item.data.permalink }}*	200!	Role={{ item.data.roleRequired }}{% endif %}{% endfor %}

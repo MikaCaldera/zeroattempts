@@ -1,0 +1,9 @@
+{% extends 'layouts/base.njk' %}
+
+{% block content %}
+  <main class="content content-landing-page" id="main-content" tabindex="-1">
+    <article>
+      {{ content | safe }}
+    </article>
+  </main>
+{% endblock %}

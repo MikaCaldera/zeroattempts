@@ -1,0 +1,51 @@
+{% if navigation.items %}
+<nav class="navbar navbar-expand-lg navbar-{{ navigation['navbar-color-scheme'] }}">
+  <div class="container">
+    <a class="navbar-brand" href="#">
+      <img class="logo" src="{{ site.logo }}" alt="{{ site.name }} logo">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav w-100 justify-content-{{ navigation['justify-navbar-contents'] }}">
+
+      {% for item in navigation.items %}
+        {% set relAttribute = '' %}
+        {% set currentAttribute = '' %}
+        {% set active = '' %}
+        {% set hasSubmenu = '' %}
+        {% set dropdown = '' %}
+        {% set dropdownToggle = '' %}
+        {% set dropdownAtttributes = '' %}
+        {% set itemUrl = item.url %}
+        {% set target = '' %}
+
+        {% if item.submenuitems | length %}
+          {% set hasSubmenu = true %}
+          {% set dropdown = 'dropdown' %}
+          {% set dropdownToggle = 'dropdown-toggle' %}
+          {% set dropdownAttributes = 'role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"' %}
+          {% set itemUrl = '#' %}
+        {% endif %}
+
+        {% if item.rel %}
+          {% set relAttribute = ' rel="' + item.rel + '"' %}
+        {% endif %}
+
+        {% if item.external %}
+          {% set target = 'target="_blank"' %}
+        {% endif %}
+
+        {% if page.url | lower == item.url | lower %}
+          {% set currentAttribute = ' aria-current="page"' %}
+          {% set active = 'active' %}
+        {% endif %}
+
+        {% include "partials/components/nav-item.njk" %}
+
+      {% endfor %}
+    </ul>
+   </div>
+  </nav>
+{% endif %}

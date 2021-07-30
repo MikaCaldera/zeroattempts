@@ -1,0 +1,48 @@
+/**
+ * Variables
+ */
+ @import "../tokens.scss";
+
+// Colors
+$theme-colors: map-get(map-get($tokens, 'colors'), 'themeColors');
+$body-colors: map-get(map-get($tokens, 'colors'), 'bodyColors');
+$header-colors: map-get(map-get($tokens, 'colors'), 'headerColors');
+
+$body-bg: map-get($body-colors, 'bodyBg');
+$body-color: map-get($body-colors, 'body-color');
+$headings-color: map-get($body-colors, 'headings-color');
+$navbar-bg: map-get($header-colors, 'navbar-bg');
+$header-bg: map-get($header-colors, 'header-bg');
+$footer-bg: map-get($body-colors, 'footer-bg');
+$footer-color: map-get($body-colors, 'footer-color');
+
+// Global settings
+$enable-rounded: map-get(map-get($tokens, 'global-settings'), 'enable-rounded');
+$enable-shadows: map-get(map-get($tokens, 'global-settings'), 'enable-shadows');
+$enable-gradients: map-get(map-get($tokens, 'global-settings'), 'enable-gradients');
+$enable-responsive-font-sizes: map-get(map-get($tokens, 'global-settings'), 'enable-responsive-font-sizes');
+
+// Spacing
+$logo-height: #{map-get(map-get($tokens, 'spacing'), 'logo-height')}rem;
+$content-cols: map-get(map-get($tokens, 'spacing'), 'content-cols');
+$sidebar-cols: map-get(map-get($tokens, 'spacing'), 'sidebar-cols');
+
+
+// Fonts
+$google-fonts: map-get(map-get($tokens, 'fonts'), 'googleFonts');
+@mixin google-font($family) {
+  $family: str-replace(inspect(unquote($family)), ' ', '+');
+  @import url("https://fonts.googleapis.com/css2?family=#{$family}&display=swap");
+}
+@each $font in $google-fonts {
+  @include google-font($font);
+}
+
+$font-family-sans-serif: map-get(map-get($tokens, 'fonts'), 'baseFontName');
+$headings-font-family: map-get(map-get($tokens, 'fonts'), 'headingsFontName');
+$h1-font-size: #{map-get(map-get($tokens, 'fonts'), 'h1-font-size')}rem;
+$h2-font-size: #{map-get(map-get($tokens, 'fonts'), 'h2-font-size')}rem;
+$h3-font-size: #{map-get(map-get($tokens, 'fonts'), 'h3-font-size')}rem;
+$h4-font-size: #{map-get(map-get($tokens, 'fonts'), 'h4-font-size')}rem;
+$h5-font-size: #{map-get(map-get($tokens, 'fonts'), 'h5-font-size')}rem;
+$h6-font-size: #{map-get(map-get($tokens, 'fonts'), 'h6-font-size')}rem;

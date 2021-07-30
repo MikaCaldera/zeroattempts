@@ -1,0 +1,11 @@
+<div>
+  {% set ariaLabel = 'footer navigation' %}
+  {% include "partials/components/footer-nav.njk" %}
+</div>
+<div>
+  {% set ariaLabel = 'social media navigation' %}
+  {% include "partials/components/socialmedia.njk" %}
+</div>
+<div class="footer-content">
+  {{ footernavigation.footerContent | markdown | safe }}
+</div>

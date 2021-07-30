@@ -1,0 +1,11 @@
+.banner {
+  background-color: $header-bg;
+}
+
+.navbar {
+  background-color: $navbar-bg;
+}
+
+.container-logo {
+  @extend .d-flex, .justify-content-between, .align-items-center;
+}

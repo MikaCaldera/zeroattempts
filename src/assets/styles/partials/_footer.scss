@@ -1,0 +1,17 @@
+.content-info {
+  background-color: $footer-bg;
+  color: $footer-color;
+
+  .nav-link {
+    color: $footer-color;
+  }
+
+  .socialmedia-icon {
+    height: 1rem;
+    width: auto;
+  }
+
+  .socialmedia-icon + .item-wrap {
+    @extend .visually-hidden;
+  }
+}

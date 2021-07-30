@@ -1,0 +1,32 @@
+{% extends 'layouts/base.njk' %}
+
+{% block content %}
+  <main id="main-content" tabindex="-1">
+    <article class="post container">
+      <header>
+        <h1>{{ title }}</h1>
+      </header>
+      <div class="post-body">
+        {{ content | safe }}
+      </div>
+      {% if tags %}
+        <footer class="post-footer">
+          <div class="inner-wrapper">
+            <div>
+              <h2>Filed under</h2>
+              <ul class="nav">
+                {% for item in tags %}
+                  <li class="nav-item">
+                    <a href="/tags/{{ item }}">{{ item }}</a>
+                  </li>
+                {% endfor %}
+              </ul>
+            </div>
+          </div>
+        </footer>
+      {% endif %}
+    </article>
+  </main>
+{% endblock %}
+
+{{ content | safe }}

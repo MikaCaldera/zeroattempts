@@ -1,0 +1,183 @@
+backend:
+  name: git-gateway
+  branch: master
+media_folder: "src/assets/images"
+public_folder: "/assets/images"
+collections:
+  - name: "pages"
+    label: "Landing Pages"
+    editor:
+      preview: false
+    folder: "src/collections/landing_pages"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Layout", name: "layout", widget: "hidden", default: "home"}
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Permalink Override (Pattern: '/your-slug/')", name: "permalink", widget: "string", required: false}
+      - {label: "SEO Meta Title", name: "metaTitle", widget: "string", required: false}
+      - {label: "SEO Meta Description", name: "metaDesc", widget: "string", required: false}
+      - {label: "Social Image", name: "socialImage", widget: "image", required: false}
+      - {label: "Body", name: "body", widget: "markdown"}
+  - name: "generic_pages"
+    label: "Pages"
+    editor:
+      preview: false
+    folder: "src/collections/pages"
+    slug: "{{slug}}"
+    preview_path: "pages/{{slug}}"
+    create: true
+    fields:
+      - {label: "Layout", name: "layout", widget: "hidden", default: "layouts/page.njk"}
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Permalink Override (Pattern: '/your-slug/')", name: "permalink", widget: "string", required: false}
+      - {label: "SEO Meta Title", name: "metaTitle", widget: "string", required: false}
+      - {label: "SEO Meta Description", name: "metaDesc", widget: "string", required: false}
+      - {label: "Social Image", name: "socialImage", widget: "image", required: false}
+      - {label: "Body", name: "body", widget: "markdown"}
+  # - name: "posts"
+  #   label: "Posts"
+  #   folder: "src/collections/posts"
+  #   slug: "{{slug}}"
+  #   preview_path: "posts/{{slug}}"
+  #   create: true
+  #   fields:
+  #     - {label: "Layout", name: "layout", widget: "hidden", default: "layouts/post.njk"}
+  #     - {label: "Title", name: "title", widget: "string"}
+  #     - {label: "Permalink", name: "permalink", widget: "hidden", default: "posts/{{ page.fileSlug }}/"}
+  #     - {label: "SEO Meta Title", name: "metaTitle", widget: "string", required: false}
+  #     - {label: "SEO Meta Description", name: "metaDesc", widget: "string", required: false}
+  #     - {label: "Social Image", name: "socialImage", widget: "image", required: false}
+  #     - {label: "Publish Date", name: "date", widget: "datetime"}
+  #     - {label: "Tags", name: "tags", widget: "list", allow_add: true}
+  #     - {label: "Body", name: "body", widget: "markdown"}
+  - label: "Globals"
+    name: "globals"
+    editor:
+      preview: false
+    files:
+      - label: "Site Data"
+        name: "site_data"
+        delete: false
+        file: "src/_data/site.json"
+        fields:
+          - {label: "Site Name", name: "name", widget: "string"}
+          - {label: "Short Name", name: "shortName", widget: "string"}
+          - {label: "Site Url", name: "url", widget: "string"}
+          - {label: "Maximum Posts Per Page", name: "maxPostsPerPage", widget: "number", default: 5}
+          - {label: "Show Theme Credit", name: "showThemeCredit", widget: "boolean", default: true}
+          - {label: "Favicon", name: "favicon", widget: "image"}
+          - {label: "Logo", name: "logo", widget: "image", default: "/assets/images/logo.svg" }
+          - {label: "Phone Number", name: "phoneNumber", widget: "string" }
+          - {label: "Form HTML", name: "formHtml", widget: "text" }
+      - label: "Navigation"
+        name: "nav"
+        delete: false
+        file: "src/_data/navigation.json"
+        fields:
+          - {label: "Justify Navbar Contents", name: "justify-navbar-contents", widget: "select", options: ["start", "center", "end", "between", "around"], default: "start"}
+          - {label: "Navbar Color Scheme", name: "navbar-color-scheme", widget: "select", options: ["light", "dark"], default: "light"}
+          - label: "Items"
+            name: "items"
+            widget: "list"
+            fields:
+              - {label: "Text", name: "text", widget: "string"}
+              - {label: "Url", name: "url", widget: "string"}
+              - {label: "Is url to external site?", name: "external", widget: "boolean", required: false}
+              - label: "Sub-Menu Items"
+                name: "submenuitems"
+                widget: "list"
+                fields:
+                  - {label: "Text", name: "text", widget: "string", required: true}
+                  - {label: "Url", name: "url", widget: "string"}
+                  - {label: "Is url to external site?", name: "external", widget: "boolean", required: false}
+      - label: "Footer"
+        name: "footernav"
+        delete: false
+        file: "src/_data/footernavigation.json"
+        fields:
+          - { label: 'Text Alignment', name: 'textAlign', widget: 'select', options: ["left", "right", "center"], default: "left"}
+          - {label: "Footer Content", name: "footerContent", widget: "markdown" }
+          - {label: "Justify Footer Nav Contents", name: "justify-footernav-contents", widget: "select", options: ["start", "center", "end", "between", "around"], default: "start"}
+          - label: "Items"
+            name: "items"
+            widget: "list"
+            fields:
+              - {label: "Text", name: "text", widget: "string"}
+              - {label: "Url", name: "url", widget: "string"}
+              - {label: "Is url to external site?", name: "external", widget: "boolean", required: false}
+      - label: "Social Media"
+        name: "socialmedia"
+        delete: false
+        file: "src/_data/socialmedia.json"
+        fields:
+          - label: "Items"
+            name: "items"
+            widget: "list"
+            fields:
+              - {label: "Text", name: "text", widget: "string"}
+              - {label: "Url", name: "url", widget: "string"}
+              - {label: "icon", name: "icon", widget: "image"}
+      - label: "Style Settings"
+        name: "theme"
+        delete: false
+        file: "src/_data/tokens.json"
+        fields:
+          - label: "Global Style Settings"
+            name: "global-settings"
+            widget: "object"
+            fields:
+              - {label: "Enable Rounded", name: "enable-rounded", widget: "boolean", default: true}
+              - {label: "Enable Shadows", name: "enable-shadows", widget: "boolean", default: false}
+              - {label: "Enable Gradients", name: "enable-gradients", widget: "boolean", default: false}
+              - {label: "Enable Responsive Font Sizes", name: "enable-responsive-font-sizes", widget: "boolean", default: false}
+          - label: "Sizing and Spacing"
+            name: "spacing"
+            widget: "object"
+            fields:
+            - {label: "Logo Height", name: "logo-height", widget: "number", valueType: "float", default: 4, hint: "Height of the header logo in rems"}
+            - {label: "Content Columns", name: "content-cols", widget: "number", valueType: "float", default: 7, max: 12, min: 1, hint: "Number of columns (out of 12) for the content column to occupy"}
+            - {label: "Sidebar Columns", name: "sidebar-cols", widget: "number", valueType: "float", default: 5, max: 12, min: 1, hint: "Number of columns (out of 12) for the sidebar column to occupy"}
+          - label: "Colors"
+            name: "colors"
+            widget: "object"
+            fields:
+              - label: "Theme Colors"
+                name: "themeColors"
+                widget: "object"
+                fields:
+                  - {label: "Primary", name: "primary", widget: "string", default: "hsl(208, 57%, 21%)"}
+                  - {label: "Secondary", name: "secondary", widget: "string", default: "#6c757d"}
+                  - {label: "Success", name: "success", widget: "string", default: "#28a745"}
+                  - {label: "Info", name: "info", widget: "string", default: "#17a2b8"}
+                  - {label: "Warning", name: "warning", widget: "string", default: "#ffc107"}
+                  - {label: "Danger", name: "danger", widget: "string", default: "#dc3545"}
+                  - {label: "Light", name: "light", widget: "string", default: "f8f9fa"}
+                  - {label: "Dark", name: "dark", widget: "string", default: "343a40"}
+              - label: "Header Colors"
+                name: "headerColors"
+                widget: "object"
+                fields:
+                  - {label: "Header Background Color", name: "header-bg", widget: "string", default: "#ffffff"}
+                  - {label: "Navbar Background Color", name: "navbar-bg", widget: "string", default: "#f8f9fa"}
+              - label: "Body Colors"
+                name: "bodyColors"
+                widget: "object"
+                fields:
+                  - {label: "Body Background Color", name: "bodyBg", widget: "string", default: "#fff"}
+                  - {label: "Body Text Color", name: "body-color", widget: "string", default: "#212529"}
+                  - {label: "Headings Color", name: "headings-color", widget: "string", default: "#404040"}
+                  - {label: "Footer Background Color", name: "footer-bg", widget: "string", default: "#f8f9fa"}
+                  - {label: "Footer Text Color", name: "footer-color", widget: "string", default: "#404040"}
+          - label: "Fonts"
+            name: "fonts"
+            widget: "object"
+            fields:
+              - {label: "Base Font Name", name: "baseFontName", widget: "string", default: "Open Sans", hint: "Google font name" }
+              - {label: "Headings Font Name", name: "headingsFontName", widget: "string", default: "Recursive", hint: "Google font name" }
+              - {label: "h1 Font Size", name: "h1-font-size", widget: "number", valueType: "float", default: 2.5, hint: "Heading 1 size in rems"}
+              - {label: "h2 Font Size", name: "h2-font-size", widget: "number", valueType: "float", default: 2, hint: "Heading 2 size in rems"}
+              - {label: "h3 Font Size", name: "h3-font-size", widget: "number", valueType: "float", default: 1.75, hint: "Heading 3 size in rems"}
+              - {label: "h4 Font Size", name: "h4-font-size", widget: "number", valueType: "float", default: 1.5, hint: "Heading 4 size in rems"}
+              - {label: "h5 Font Size", name: "h5-font-size", widget: "number", valueType: "float", default: 1.25, hint: "Heading 5 size in rems"}
+              - {label: "h6 Font Size", name: "h6-font-size", widget: "number", valueType: "float", default: 1, hint: "Heading 6 size in rems"}

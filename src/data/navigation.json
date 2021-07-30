@@ -1,0 +1,16 @@
+{
+  "justify-navbar-contents": "end",
+  "navbar-color-scheme": "light",
+  "items": [
+    {
+      "text": "Home",
+      "url": "/",
+      "external": false
+    },
+    {
+      "text": "Contact",
+      "url": "/contact/",
+      "external": false
+    }
+  ]
+}
